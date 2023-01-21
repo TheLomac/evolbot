@@ -1,0 +1,61 @@
+const {
+    ChatInputCommandInteraction,
+    SlashCommandBuilder,
+    EmbedBuilder,
+  } = require("discord.js");
+  
+  module.exports = {
+    data: new SlashCommandBuilder()
+    .setName("reseña-bot")
+    .setDescription("Escribe una resaña para el bot")
+    .setDMPermission(false)
+    .addStringOption(option => option.setName('reseña').setDescription('reseña') .setRequired(true))
+    .addStringOption(option =>
+      option.setName('estrellas')
+        .setDescription('¿Cuantas estrellas le das?')
+        
+        .addChoices(
+          { name: '⭐', value: '⭐⠀⠀⠀⠀' },
+          { name: '⭐⭐', value: '⭐⭐⠀⠀⠀' },
+          { name: '⭐⭐⭐', value: '⭐⭐⭐⠀⠀' },
+          { name: '⭐⭐⭐⭐', value: '⭐⭐⭐⭐⠀' },
+          { name: '⭐⭐⭐⭐⭐', value: '⭐⭐⭐⭐⭐' },
+        
+          )
+          .setRequired(true)),
+    /**
+     *
+     * @param {ChatInputCommandInteraction} interaction
+     */
+    execute(interaction) {
+
+        const canal = interaction.guild.channels.cache.get("ID DEL CANAL DE LA RESEÑA");
+        const reseña = interaction.options.getString('reseña');
+        const estrellas = interaction.options.getString('estrellas');
+            const embed = new EmbedBuilder()
+            .setTitle("Reseña")
+                .setDescription(`
+                Reseña:
+                ${reseña}
+    
+                Estrellas:
+                ${estrellas}
+                
+                `)
+                .setImage("https://cdn.discordapp.com/attachments/989905869946892347/1023241413430870016/kmk_1.png")
+                .setThumbnail("https://cdn.discordapp.com/emojis/1021435773565800519.gif?size=96&quality=lossless")
+                .setColor("#fffa00")
+              //  .setFooter(`Cuenta creada ${userinfo.createdat}`)
+             
+              .setFooter({ text: `Enviada desde ${interaction.guild} por ${interaction.user.username}`})
+    
+    
+             
+              interaction.channel.send({ embeds: [embed] });
+               interaction.reply({
+        content: `Gracias por enviar una reseña`,
+        ephemeral: true,
+      });
+        
+    },
+  };
