@@ -4,8 +4,8 @@ const fs = require("fs")
 
 module.exports = {
   data: new SlashCommandBuilder()
-  .setName("help")
-  .setDescription("Mira mis comandos"),
+  .setName("ayuda")
+  .setDescription("Menu de ayuda"),
 
   async execute(interaction){
 		
@@ -27,12 +27,6 @@ module.exports = {
           emoji: "🟩" 
         },
         {
-          label: "Moderación",
-          description: "Mira los comandos de Moderación.",
-          value: "moderación",
-          emoji: "⛔"
-        },
-        {
           label: "Interacción",
           description: "Mira los comandos de Interacción.",
           value: "interacción",
@@ -48,7 +42,7 @@ module.exports = {
       .setTitle("Menú de Ayuda") 
 		  .setImage("https://cdn.discordapp.com/attachments/1062964556634279938/1063269105702014996/anime_girl_heart.jpg")
       .setColor("Random")
-      .setDescription(`Una desc`)
+      .setDescription(`AUN EN DESARROLLO`)
     
      let mensaje = await interaction.reply({ embeds: [embed], components: [cmp] })
 
@@ -65,15 +59,6 @@ module.exports = {
     .setColor("Random")
 
     const embed2 = new EmbedBuilder()
-    .setTitle("Comandos de Moderación")
-    .setDescription("LISTA DE COMANDOS")
-    .setImage("https://cdn.discordapp.com/attachments/1062964556634279938/1063269105500700804/5ea5f78b5cbb1.jpeg")
-    .setFooter({ text: "EN DESARROLLO" })
-    .setTimestamp()
-    .setColor("Random")
-
-
-    const embed3 = new EmbedBuilder()
     .setTitle("Comandos de Interaccion")
     .setDescription("LISTA DE COMANDOS")
     .setImage("https://cdn.discordapp.com/attachments/1062964556634279938/1063261549650784336/914465chitanda.png")
@@ -95,18 +80,11 @@ collector.on("collect", async i => {
         i.editReply({ embeds: [embed1], components: [cmp] })
        } 
     })
-    
-    collector.on("collect", async i => {
-      if(i.values[0] === "moderación"){
-        await i.deferUpdate()
-        i.editReply({ embeds: [embed2], components: [cmp] })
-       } 
-     })
      
      collector.on("collect", async i => {
       if(i.values[0] === "interacción"){
         await i.deferUpdate()
-        i.editReply({ embeds: [embed3], components: [cmp] })
+        i.editReply({ embeds: [embed2], components: [cmp] })
        } 
      })
   }
