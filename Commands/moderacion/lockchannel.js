@@ -10,13 +10,13 @@ const {
       .setName("lock")
       .setDescription("Cierra el canal")
       .addChannelOption((option) =>
-        option.setName("canal").setDescription("Selecciona un canal.")
+        option.setName("canal").setDescription("selecciona un canal.")
         .setRequired(true)
       )
       .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
   
     async execute(interaction, client) {
-      const channel = interaction.options.getChannel("Canal");
+      const channel = interaction.options.getChannel("canal");
   
       const succesEmbed = new EmbedBuilder()
         .setColor(0xd98832)
