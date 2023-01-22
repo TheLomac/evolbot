@@ -1,6 +1,7 @@
 const {ChatInputCommandInteraction, SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, Embed } = require("discord.js");
   
   module.exports = {
+    developer: true,
     data: new SlashCommandBuilder()
       .setName("menu")
       .setDescription("Prueba de menu con botones"),
