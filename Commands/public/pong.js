@@ -9,6 +9,6 @@ const {ChatInputCommandInteraction, SlashCommandBuilder, } = require("discord.js
      * @param {ChatInputCommandInteraction} interaction
      */
     execute(interaction) {
-      interaction.reply({ content: "Ping!!", ephemeral: false }); //este ephemeral es para que lo vea solo el usuario
+      interaction.reply({ content: "Ping!! PING!", ephemeral: false }); //este ephemeral es para que lo vea solo el usuario
     },
   };
