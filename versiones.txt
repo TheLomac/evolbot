@@ -1,0 +1,3 @@
+LOGS DE VERSIONES.
+22/01 
+V.0.0.3 Se agregaron las interacciónes, por el momento solo contamos con dos, slap y nyah. Commands\public\interac.js
