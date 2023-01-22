@@ -1,5 +1,5 @@
 process.noDeprecation = true;
-const { Client, GatewayIntentBits, Partials, Collection, Events, AuditLogEvent, EmbedBuilder } = require("discord.js");
+const { Client, GatewayIntentBits, Partials, Collection, Events, AuditLogEvent, EmbedBuilder, ActivityType } = require("discord.js");
 const { Guilds, GuildMembers, GuildMessages } = GatewayIntentBits;
 const { User, Message, GuildMember, ThreadMember } = Partials;
 
@@ -29,6 +29,25 @@ loadButtons(client);
 
 client.login(client.config.token)
 
+const fs = require('fs');
+client.on('ready', () => {
+  // Leer el archivo
+  fs.readFile('versiones.txt', 'utf8', (err, data) => {
+    if (err) throw err;
+
+    // Convertir el contenido del archivo en una matriz de líneas
+    const lineas = data.split('\n');
+
+    // Acceder a la última línea
+    const ultimaLinea = lineas[lineas.length - 1];
+
+    // Establecer el estado del bot
+    client.user.setPresence({
+      activities: [{ name: ultimaLinea, type: ActivityType.Watching }],
+      status: 'online',
+    });
+  });
+});
 
 client.on(Events.GuildBanAdd, async (member) => {
   member.guild
