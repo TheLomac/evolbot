@@ -4,3 +4,4 @@ V.0.0.3 Se agregaron las interacciónes, por el momento solo contamos con dos, s
 V.0.0.3-REV.1 Se agregaron las dependencias axion npm.
 V.0.0.3-REV.2 Se agregó un estado automatico para el bot.
 V.0.0.3-REV.3 Nuevos comandos para moderación.
+V.0.0.4 Nuevos comandos para moderación \n 22/01/23
