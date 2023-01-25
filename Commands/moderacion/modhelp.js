@@ -6,7 +6,7 @@ module.exports = {
   data: new SlashCommandBuilder()
   .setName("cmdmod")
   .setDescription("Menu de ayuda para moderadores")
-  .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
+  .setDefaultMemberPermissions(PermissionFlagsBits.KickMembers),
 
 
   async execute(interaction){
@@ -96,8 +96,15 @@ module.exports = {
 
 
     const embed3 = new EmbedBuilder()
-    .setTitle("Comandos de Interaccion")
+    .setTitle("Listado de componentes")
     .setDescription("LISTA DE COMANDOS")
+    .addFields(
+      { name:'ver', value: 'Con este boton se asignará el rol de verificado.', inline: true },
+      { name: 'mc', value: 'Con este boton se asignará el rol de MC.', inline: true },
+      { name: '\u200B', value: '\u200B' },
+      { name: 'Proximos comandos', value: 'esto van a ser los próximos comandos para moderación.' },
+      { name: '/user-info', value: 'Con este comando podrás ver toda la información disponible sobre un usuario en el servidor.', inline: true }
+    )
     .setImage("https://cdn.discordapp.com/attachments/1062964556634279938/1063225119436181636/70515910726734841.jpg")
     .setFooter({ text: "EN DESAROLLO" })
     .setTimestamp()

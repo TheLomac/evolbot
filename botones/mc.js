@@ -1,11 +1,11 @@
 module.exports = {
     data: {
-        name: "ver",
+        name: "mc",
     },
     async execute(interaction, client) {
     
 
-        const user = interaction.guild.roles.cache.get(`1066314187179053076`);
+        const user = interaction.guild.roles.cache.get(`1067859923586785290`);
         const role = interaction.member.roles.cache.has(user.id);
        if(role) return interaction.member.roles.remove(user).then((member) => 
         interaction.reply({

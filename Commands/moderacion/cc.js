@@ -22,7 +22,7 @@ module.exports = {
      limit: amount +1,
    });
 
-   const filtered = messages.filter((msg) => Date.now() - msg.createdTimestamp < ms('14 days'));
+   const filtered = messages.filter((msg) => Date.now() - msg.createdTimestamp < ms ('14 dias'));
 
    await interaction.channel.bulkDelete(filtered);
 
